@@ -1,0 +1,237 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-class">
+        <ul class="sortby" id="top-class">
+            <li class="active" name="z-ul-li" onclick="class_qh('',this)">
+                <a href="javascript:void(0)">全部分类</a>
+            </li>
+            <li name="z-ul-li" onclick="class_qh('0',this)">
+                <a href="javascript:void(0)">等待审核</a>
+            </li>
+            <li name="z-ul-li" onclick="class_qh('1',this)">
+                <a href="javascript:void(0)">审核成功</a>
+            </li>
+            <li name="z-ul-li" onclick="class_qh('2',this)">
+                <a href="javascript:void(0)">审核失败</a>
+            </li>
+        </ul>
+    </ul>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>标题</dt>
+                                <dd><input name="" type="text" class="form-control" id="user_name"
+                                           placeholder="请输入用户名手机号邮箱或者昵称"></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="user_real_select('',1)">
+                                    <i class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="del()" name="top-button">删除</button>
+                    </div>
+
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>图片</th>
+                                <th>手机号</th>
+                                <th>邮箱</th>
+                                <th>昵称</th>
+                                <th>是否实名</th>
+                                <th>真实姓名</th>
+                                <th>身份证号</th>
+                                <th>身份证图</th>
+                                <th>实名时间</th>
+                                <th>备注</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="user_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共68条记录,1/5页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first">
+                                        <a href="#">首页</a>
+                                    </li>
+                                    <li class="page-pre">
+                                        <a href="#">上一页</a>
+                                    </li>
+                                    <li class="page-next">
+                                        <a href="#">下一页</a>
+                                    </li>
+                                    <li class="page-last">
+                                        <a href="#">末页</a>
+                                    </li>
+                                    <li class="pagejump">第<input name="" type="text">/10页
+                                        <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<div class="modal fade" id="fileStorage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">实名审核</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" id="update-dj">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>真实姓名:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="realname" disabled="disabled">
+
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>身份证号:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="idcard" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>证件照:</label>
+                        <div class="col-xs-8">
+                            <img src="" id="img" onerror="imgExists(this,0)"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>审核状态:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" onchange="update_type(this.value)" id="process">
+                                <option value="1">审核通过</option>
+                                <option value="2">审核失败</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="add_memo" style="display: none;">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>审核不过原因:</label>
+                        <div class="col-xs-8">
+                            <textarea class="form-control" id="memo"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_update()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+<div class="modal fade" id="ImgFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">图片展示</h4>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <img src="" id="Z_img" onerror="imgExists(this,0)"/>
+                    </div>
+                </div>
+
+
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabelDel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<script src="whpjs/sub_user_real.js"></script>

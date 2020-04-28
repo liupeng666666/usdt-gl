@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="css/jquery.jOrgChart.css"/>
+<link rel="stylesheet" href="css/jorg.css"/>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/prettify.js"></script>
+<script src="js/jquery.jOrgChart.js"></script>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel borderBox jorg_div">
+
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <form>
+                        <ul id="org" style="display: none;">
+
+                        </ul>
+                        <div id="chart" class="orgChart"></div>
+                    </form>
+                </div>
+                <!--/table-responsive-->
+            </div>
+            <!--/panel-body-->
+        </div>
+        <!--/panel-->
+    </div>
+    <!--/col-lg-5-->
+</div>
+<!--/row-->
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">绑定人员</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>请选择人员</label>
+                        <div class="col-xs-6">
+                            <input name="" type="text" value="" class="form-control" id="name">
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="button" class="btn btn-info" onclick="chaxun()" id="qd">搜索</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>人员:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="user_id">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<script src="whpjs/recursion.js"></script>

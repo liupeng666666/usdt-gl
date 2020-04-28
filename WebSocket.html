@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="css/zidingyi.css"/>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel borderBox">
+            <div class="panel-title">
+                <div style="width: 30%; float: left; height: 500px;overflow:auto;" class="socket">
+                    <ul id="socket-left">
+                        <li>
+                            <div class="col-xs-4"><img src="images/avatar.png" class="img-circle"/></div>
+                            <div class="col-xs-4"><span style="line-height: 50px;">凤凰</span></div>
+                            <div class="col-xs-4"><span class="label label-danger tubiao">3</span></div>
+                        </li>
+                        <li>1</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div style="width:65%;height: 500px; float: right;" class="socket">
+                    <div style="height: 320px; background-color: #ffffff;margin-bottom: 10px;  overflow-y:auto; overflow-x:auto; "
+                         id="socket_right">
+                        <!--<div class="liaotian">
+                            <div class="col-xs-1"><img src="images/avatar.png" class="img-circle"></div>
+                            <div class="col-xs-11">
+                                <div>头像名</div>
+                                <div class="message-hui">内容</div>
+                            </div>
+
+                        </div>
+                        <div class="liaotian">
+
+                            <div class="col-xs-11" style="text-align: right;">
+                                <div>头像名</div>
+                                <div class="message-lan">内容</div>
+                            </div>
+                            <div class="col-xs-1"><img src="images/avatar.png" class="img-circle"></div>
+                        </div>-->
+                    </div>
+                    <div>
+                        <textarea class="form-control" style="width: 100%; height: 100px;" id="message"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" type="button" onclick="yidu()">已读</button>
+                        <button class="btn btn-info" type="button" onclick="ceshi()">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="whpjs/socket.js"></script>

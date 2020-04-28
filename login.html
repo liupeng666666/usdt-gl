@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>虚拟币管理系统</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- style-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css"/>
+    <link href="css/custom.min.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!--jQuery-->
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="loginbox animated flipInX">
+        <div class="login-banner">
+            <h2>虚拟币管理系统</h2>
+        </div>
+        <div class="loginbox_inner">
+            <form id="form" action="" method="">
+                <div class="row">
+                    <div class="col-xs-7 loginbox_content">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="用户名" name="username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+                                <input type="password" class="form-control" placeholder="密码" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <label class="sr-only" for="">验证码</label>
+                                    <input type="text" class="form-control" placeholder="验证码" name="yzm">
+                                </div>
+                                <div class="col-xs-7">
+                                    <img src="../usdt/sysuser/SysYanZhengMa" id="Img_YanZhengMa"><span
+                                        class="refresh-code" onclick="yanzhengma()">换一张？</span>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <div class="notifyError" style="display:none">
+                            用户名或密码错误
+                        </div>
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="loginbutt">
+                            <button id="" type="button" class="btn btn-login" onclick="login()">登录</button>
+                        </div>
+                    </div>
+                </div>
+                <!--/row-->
+            </form>
+        </div>
+        <!--loginbox_inner-->
+    </div>
+    <!--loginbox-->
+
+    <div class="loginoption">
+        Copyright ©
+        <script>var copyrightdate = new Date();
+        this.year = copyrightdate.getFullYear();
+        document.write(this.year);</script>
+        ******** All rights reserved.
+    </div><!--loginoption-->
+
+
+</div>
+
+<script src="whpjs/login.js"></script>
+
+
+</body>
+</html>

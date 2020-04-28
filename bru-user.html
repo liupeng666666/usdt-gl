@@ -1,0 +1,321 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>标题</dt>
+                                <dd><input name="" type="text" class="form-control" id="search_content"
+                                           placeholder="请输入用户名手机号或者昵称"></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search"
+                                        onclick="getBruUserBySearch('',1)"><i class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="changUser(1)">禁领任务</button>
+                        <button type="button" class="btn btn-primary" onclick="changUser(0)">可领任务</button>
+                        <button type="button" class="btn btn-primary" onclick="bobi_show()">拨币</button>
+                    </div>
+                    <div class="btn-group" style="padding-top:5px;">
+                        <button name="top-button" type="button" class="btn btn-success" onclick="userOrderBy(1,this)">
+                            开通节点数量排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(11,this)">
+                            总活跃度排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(4,this)">
+                            活跃度排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(5,this)">
+                            生产BRU数量排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(6,this)">
+                            推广节点BRU数量排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(7,this)">
+                            注册BRU数量排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(8,this)">
+                            三代开通K60数量排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(9,this)">
+                            三代开通M180排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(10,this)">
+                            三代开通G3200排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(0,this)">
+                            BRU余额排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(2,this)">
+                            购买总额排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(3,this)">
+                            出售总额排序
+                        </button>
+                        <button name="top-button" type="button" class="btn btn-primary" onclick="userOrderBy(12,this)">
+                            超级节点排序
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="40px"></th>
+                            <th style="min-width:60px">头像</th>
+                            <th style="min-width:100px">用户名</th>
+                            <th style="min-width:100px">手机号</th>
+                            <th style="min-width:80px">昵称</th>
+                            <th style="min-width:60px">是否实名</th>
+                            <th style="min-width:140px">身份证号</th>
+                            <th style="min-width:120px">已开通节点</th>
+                            <th style="min-width:120px">超级节点</th>
+                            <th style="min-width:80px">活跃度</th>
+                            <th style="min-width:80px">总活跃度</th>
+                            <th style="min-width:80px">生产BRU数量</th>
+                            <th style="min-width:80px">推广流量节点BRU数量</th>
+                            <th style="min-width:80px">注册BRU数量</th>
+                            <th style="min-width:80px">三代开通体验包数量</th>
+                            <th style="min-width:80px">三代开通S2数量</th>
+                            <th style="min-width:80px">三代开通P8数量</th>
+                            <th style="min-width:80px">三代开通K60数量</th>
+                            <th style="min-width:80px">三代开通M180数量</th>
+                            <th style="min-width:80px">三代开通G3200数量</th>
+                            <th style="min-width:80px">BRU余额</th>
+                            <th style="min-width:80px">出售量</th>
+                            <th style="min-width:80px">购买量</th>
+                            <th style="min-width:60px">是否可领任务</th>
+                            <th style="min-width:60px">无限代</th>
+                        </tr>
+                        </thead>
+                        <tbody id="user_center">
+                        </tbody>
+                    </table>
+                </div>
+                <!--/table-responsive-->
+                <div class="row" id="showpage">
+                    <div class="col-xs-6">
+                        <div class="dataTables_info" id="dynamic-table_info">共0条记录,0/0页</div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="dataTables_paginate paging_bootstrap pagination">
+                            <ul id="center_fy">
+                                <li class="page-first"><a href="#">首页</a></li>
+                                <li class="page-pre"><a href="#">上一页</a></li>
+                                <li class="page-next"><a href="#">下一页</a></li>
+                                <li class="page-last"><a href="#">末页</a></li>
+                                <li class="pagejump">第<input name="" type="text">/0页 <a href="#">GO</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/row showpage -->
+            </div>
+            <!--/panel-body-->
+        </div>
+        <!--/panel-->
+    </div>
+    <!--/col-lg-5-->
+
+</div>
+<!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+
+<div class="modal fade" id="fileStorage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="form-group" id="update-dj">
+                       <label class="col-xs-3 label-right"><span class='require'>*</span>等级:</label>
+                       <div class="col-xs-8">
+                           <select class="form-control" id="update_grade">
+
+                           </select>
+                       </div>
+                    </div> -->
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>修改密码:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="password" value="" class="form-control" id="password"
+                                   placeholder="不修改密码，不用填写">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm2">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>修改交易密码:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="password" value="" class="form-control" id="trade_password"
+                                   placeholder="不修改交易密码，不用填写">
+                        </div>
+                    </div>
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_update()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+<div class="modal fade" id="bobi_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">拨币/活跃度</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="form-group" id="update-dj">
+                       <label class="col-xs-3 label-right"><span class='require'>*</span>等级:</label>
+                       <div class="col-xs-8">
+                           <select class="form-control" id="update_grade">
+
+                           </select>
+                       </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>数量:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="bobi_num" placeholder="数量">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>拨币/活跃度:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="state">
+                                <option value="0">拨币</option>
+                                <option value="1">拨活跃度</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="brubobi()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabelDel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<div class="modal fade" id="wuxiandaiFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">无限代数据</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="form-group" id="update-dj">
+                       <label class="col-xs-3 label-right"><span class='require'>*</span>等级:</label>
+                       <div class="col-xs-8">
+                           <select class="form-control" id="update_grade">
+
+                           </select>
+                       </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>无限代金额:</label>
+                        <div class="col-xs-7" id="wuxiandai">
+
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="button" class="btn btn-info" onclick="qd_gengxin(this)">更新</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<script src="brujs/bru_user.js"></script>

@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-class">
+    </ul>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>开始时间</dt>
+                                <dd><input type="text" value="" id="datetimepicker" class="form-control"
+                                           data-date-format="yyyy-mm-dd hh:ii" placeholder="开始时间"></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>结束时间</dt>
+                                <dd><input type="text" value="" id="datetimepicker2" class="form-control"
+                                           data-date-format="yyyy-mm-dd hh:ii" placeholder="结束时间"></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="getBruKlineByTime('',1)">
+                                    <i class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="add()">增加BRU数据</button>
+                        <button type="button" class="btn btn-primary" onclick="update()">修改BRU数据</button>
+                        <button type="button" class="btn btn-primary" onclick="del()">删除</button>
+                    </div>
+
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>买单价</th>
+                                <th>卖单价</th>
+                                <th>最低价</th>
+                                <th>最高价</th>
+                                <!-- <th>成交额</th> -->
+                                <th>展示时间</th>
+                            </tr>
+                            </thead>
+                            <tbody id="user_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共0条记录,0/0页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first"><a href="#">首页</a></li>
+                                    <li class="page-pre"><a href="#">上一页</a></li>
+                                    <li class="page-next"><a href="#">下一页</a></li>
+                                    <li class="page-last"><a href="#">末页</a></li>
+                                    <li class="pagejump">第<input name="" type="text">/0页 <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+<!--end modal-->
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabelDel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $('#datetimepicker').datetimepicker({language: 'zh-CN'});
+    $('#datetimepicker2').datetimepicker({language: 'zh-CN'});
+</script>
+<script src="brujs/bru-kline.js"></script>

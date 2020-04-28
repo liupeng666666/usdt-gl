@@ -1,0 +1,164 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="add()">添加</button>
+                        <button type="button" class="btn btn-primary" onclick="update()">编辑</button>
+                        <button type="button" class="btn btn-primary" onclick="del()">删除</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>级别</th>
+                                <th>类型</th>
+                                <th>奖励金额</th>
+                                <th>累计消费</th>
+                                <th>提成</th>
+                                <th>跟单查看费</th>
+                                <th>升级所需等级</th>
+                                <th>升级所需等级人数</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="grade_center">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">等级</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>类型:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="add_type">
+                                <option value="0">新闻分类</option>
+                                <option value="1">公告分类</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>等级名称:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>奖励金:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="money">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>累计交易:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="consume">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>提成:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="extract">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>跟单查看费:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="charge">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>升级所需等级:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="add_grade_pid">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>升级所需人数:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="num">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">删除</h4>
+            </div>
+            <div class="modal-body">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<script src="whpjs/system_grade.js"></script>

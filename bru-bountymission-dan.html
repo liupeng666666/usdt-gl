@@ -1,0 +1,105 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right">任务等级:</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" id="level">
+                                <option value="0">初级</option>
+                                <option value="1">中级</option>
+                                <option value="2">高级</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>任务标题:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="text" value="" class="form-control" id="tasktitle">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>任务内容:</label>
+                        <div class="col-xs-9">
+                            <textarea name="memo" cols="" rows="" class="form-control" id="taskcontent"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>任务赏金:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" value="" class="form-control" id="money">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赏金类型:</label>
+                        <div class="col-xs-9">
+                            <input name="state" type="radio" checked="checked" value="0" style="margin-top:10px;" id="">BRU
+                            <input name="state" type="radio" value="1" style="margin-top:10px;margin-left:40px" id="">活跃度
+                        </div>
+                    </div>
+                    <div>
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>渠道:</label>
+                        <div class="col-xs-9">
+                            <input name="channel" type="checkbox" value="we" style="margin-top:10px;" id="">微信
+                            <input name="channel" type="checkbox" value="qq" style="margin-top:10px;margin-left:40px"
+                                   id="">QQ
+                            <input name="channel" type="checkbox" value="qq3" style="margin-top:10px;margin-left:40px"
+                                   id="">QQ空间
+                            <input name="channel" type="checkbox" value="we2" style="margin-top:10px;margin-left:40px"
+                                   id="">朋友圈
+                            <input name="channel" type="checkbox" value="xl" style="margin-top:10px;margin-left:40px"
+                                   id="">微博
+                            <input name="channel" type="checkbox" value="al" style="margin-top:10px;margin-left:40px"
+                                   id="">支付宝
+                            <input name="channel" type="checkbox" value="bd" style="margin-top:10px;margin-left:40px"
+                                   id="">百度
+                        </div>
+                    </div>
+
+                    <!-- <div>
+                    <label class="col-xs-2 label-right"><span class='require'>*</span>message:</label>
+                    <div class="col-xs-9">
+                        <script id="y_editor" type="text/plain"class="col-xs-8" style="width: 100%;height: 500px;"></script>
+                    </div>
+                      <div class="col-xs-1 label-right">
+                       <button class="btn btn-danger" type="button" onclick="ZN_EN('editor',2)">中英</button>
+                    </div>
+                 </div> -->
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--/panel-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" onclick="tiaoban()">取消</button>
+                </div>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<script src="js/fileinput.min.js"></script>
+
+<script src="brujs/bru_bountymission_dan.js"></script>

@@ -1,0 +1,134 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right">名称:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="text" value="" class="form-control" id="bn_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>标题:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="text" value="" class="form-control" id="bn_title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>价格:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_price">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赠送活跃度:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_alive">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>日生产BRU数量:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_daybru">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>期限（天）:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_period">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赠送一代成员活跃度:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_onealive">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赠送一代成员BRU:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_onebru">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赠送二代成员活跃度:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_twoalive">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赠送二代成员BRU:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_twobru">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赠送三代成员活跃度:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_threealive">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>赠送三代成员BRU:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" class="form-control" value="" id="bn_threebru">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update_img" style="display: none;">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>图片:</label>
+                        <div class="col-xs-9">
+                            <img src="" id="bn_img"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>图片:</label>
+                        <div class="col-xs-9">
+                            <input id="file-add" type="file" class="form-control"
+                                   accept="image/jpeg,image/jpg,image/png"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>介绍:</label>
+                        <div class="col-xs-9">
+                            <textarea name="memo" cols="" rows="" class="form-control" id="bn_content"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--/panel-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" onclick="tiaoban()">取消</button>
+                </div>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<script src="js/fileinput.min.js"></script>
+<script src="brujs/bru_blocknode_dan.js"></script>

@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <ul class="sortby" id="top-class">
+
+    </ul>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="dj(1)">列表</button>
+                        <button type="button" class="btn btn-primary" onclick="dj(2)">图表</button>
+                    </div>
+                </div>
+                <div class="panel-body" style="display: none;" id="title">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>成交量</th>
+                                <th>成交笔数</th>
+                                <th>开盘价</th>
+                                <th>收盘价</th>
+                                <th>最低价</th>
+                                <th>最高价</th>
+                                <th>成交额</th>
+                                <th>生成时间</th>
+                            </tr>
+                            </thead>
+                            <tbody id="kline_center">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                </div>
+
+                <div class="panel-body" id="echart">
+                    <div id="container" style="height: 500px">
+                        <div id="loding" style="height: 100px;"></div>
+                    </div>
+                    <!--/table-responsive-->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+
+<script src="js/echarts.min.js"></script>
+<script src="whpjs/system_kline.js"></script>

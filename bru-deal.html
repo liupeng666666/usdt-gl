@@ -1,0 +1,328 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-class">
+        <ul class="sortby" id="top-class">
+            <li class="active" name="z-ul-li" onclick="class_bd('',this)">
+                <a href="javascript:void(0)">全部分类</a>
+            </li>
+            <li name="z-ul-li" onclick="class_bd('0',this)">
+                <a href="javascript:void(0)">待出售</a>
+            </li>
+            <li name="z-ul-li" onclick="class_bd('1',this)">
+                <a href="javascript:void(0)">待付款</a>
+            </li>
+            <li name="z-ul-li" onclick="class_bd('2',this)">
+                <a href="javascript:void(0)">待收款</a>
+            </li>
+            <li name="z-ul-li" onclick="class_bd('3',this)">
+                <a href="javascript:void(0)">已取消</a>
+            </li>
+            <li name="z-ul-li" onclick="class_bd('4',this)">
+                <a href="javascript:void(0)">已完成</a>
+            </li>
+            <li name="z-ul-li" onclick="class_bd('5',this)">
+                <a href="javascript:void(0)">待发币</a>
+            </li>
+            <li name="z-ul-li" onclick="class_bd('6',this)">
+                <a href="javascript:void(0)">超时</a>
+            </li>
+        </ul>
+    </ul>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>标题</dt>
+                                <dd><input name="" type="text" class="form-control" id="search_content"
+                                           placeholder="请输入用户昵称"></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="getUserDeal('',1)"><i
+                                        class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="del(2)">删除</button>
+                    </div>
+
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th style="min-width:150px">订单号</th>
+                                <th style="min-width:120px">发布人</th>
+                                <th style="min-width:150px">发布人账号</th>
+                                <th style="min-width:120px">出售人</th>
+                                <th style="min-width:150px">出售人账号</th>
+                                <th style="min-width:150px">数量</th>
+                                <th style="min-width:150px">单价</th>
+                                <th style="min-width:100px">活跃度</th>
+                                <th style="min-width:150px">发布时间</th>
+                                <th style="min-width:150px">出售时间</th>
+                                <th style="min-width:150px">支付时间</th>
+                                <th style="min-width:80px">状态</th>
+                                <th style="min-width:150px">备注</th>
+                                <th style="min-width:150px">超时账号</th>
+                                <th style="min-width:80px">超时操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="user_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共0条记录,0/0页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first"><a href="#">首页</a></li>
+                                    <li class="page-pre"><a href="#">上一页</a></li>
+                                    <li class="page-next"><a href="#">下一页</a></li>
+                                    <li class="page-last"><a href="#">末页</a></li>
+                                    <li class="pagejump">第<input name="" type="text">/0页 <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+<div class="modal fade" id="fileStorage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">订单审核</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" id="update-dj">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>订单号:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control" id="deal_id"
+                                   disabled="disabled">
+
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>发布人:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_nickname" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>发布人账号:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control" id="deal_phone"
+                                   disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>出售人:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_bnickname" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>出售人账号:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_bphone" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>数量:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_sellnum" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>单价:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_sellprice" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>活跃度:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control" id="deal_alive"
+                                   disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>发布时间:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_createtime" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>出售时间:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_buytime" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>支付时间:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control"
+                                   id="deal_paytime" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>状态:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" readonly="readonly" value="" class="form-control" id="deal_state"
+                                   disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>付款截图:</label>
+                        <div class="col-xs-8">
+                            <img style="width:300px;height:600px" src="" id="img1" onerror="imgExists(this,0)"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>审核状态:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" onchange="" id="process">
+                                <option value="4">发币</option>
+                                <option value="3">取消订单</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_update()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+
+<div class="modal fade" id="fileStorage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">修改等级</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" id="update-dj">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>等级:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="update_grade">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>修改密码:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="password" value="" class="form-control" id="password"
+                                   placeholder="不修改密码，不用填写">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm2">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>修改交易密码:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="password" value="" class="form-control" id="trade_password"
+                                   placeholder="不修改交易密码，不用填写">
+                        </div>
+                    </div>
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_update()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabelDel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<script src="brujs/bru_deal.js"></script>

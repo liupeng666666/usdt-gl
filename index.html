@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>虚拟币案管理系统</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- style-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css"/>
+    <link href="css/custom.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/zTreeStyle/zTreeStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.shCircleLoader.css"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!--jQuery-->
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body role="">
+<!--===========BEGIN PAGE===============-->
+<div class="wrapper">
+    <!--====BEGIN HEADER ====-->
+    <header class="navbar navbar-inverse navbar-fixed-top box-shadow topbar" role="navigation">
+        <div class="container">
+            <div class="top-nav-content">
+                <ul class="tool-nav">
+                    <li>
+                        <button class="button-menu-mobile open-left"><i class="fa fa-bars"></i></button>
+                    </li>
+                    <li>欢迎使用虚拟币管理系统</li>
+                </ul>
+                <ul class="user-nav navbar-right">
+                    <li class="warning-item">
+                        <a href="javascript:void(0)">在线客服<span class="label label-danger" id="index_zxkf">0</span></a>
+                    </li>
+                    <li class="dropdown topbar-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="topbar-profile-image"><img src="images/avatar.png" class="rounded-image"
+                                                                    id="index_img"></span>
+                            <span class="topbar-profile-name" id="index_nickname">用户昵称</span><i
+                                class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user pull-right">
+                            <li><a href="#" onclick="load('system-password.html')"><i class="fa fa-unlock"></i> 修改密码</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="quit-login">
+                        <a href="login.html"><i class="fa fa-power-off"></i>安全退出</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/top-nav-content-->
+        </div>
+        <!--/container-fluid-->
+    </header>
+    <!--/header-->
+    <!--====END HEADER ====-->
+
+    <!--====BEGIN SIDEBAR====-->
+    <div class="sidebar-left sidebar-nicescroller">
+        <div id="accordion">
+            <div class="content">
+                <div class="page-logo">
+                    <a href="javascript:void(0)"><img src="images/logo.png"></a>
+                </div>
+                <ul class="sidebar-menu" id="index_left">
+                    <li class="static">代办事项<i class="fa fa-angle-double-right icon-right"></i></li>
+                </ul>
+                <!--/sidebar-menu-->
+            </div>
+            <!--/content-->
+        </div>
+        <!--/accordion-->
+    </div>
+    <!--sidebar-left -->
+    <!--====END SIDEBAR====-->
+
+    <!--==== BEGIN PAGE CONTENT =====-->
+    <div class="page-content">
+        <ul class="item-nav clearfix" id="index_ul">
+
+        </ul>
+        <!--/item-nav-->
+        <!--==== begin container-fluid ====-->
+        <div class="container-fluid" id="html_center">
+            <div id="html_loading"></div>
+        </div>
+        <!--/container-fluid-->
+
+        <div class="footer">
+            <div class="pull-left">E-mail： service@btc.com</div>
+            <div class="pull-right">©2018-
+                <script>var copyrightdate = new Date();
+                this.year = copyrightdate.getFullYear();
+                document.write(this.year);</script>
+                年********. All Right Reserved. 港ICP备13031419号-2
+            </div>
+        </div>
+        <!--/footer-->
+    </div>
+    <!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+
+<!--公共提示层-->
+<div class="pop-dialog" id="tip-public" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="tip-inner">
+        <div class="tip-header">
+            <button type="button" class="close" onClick="hidePop('#tip-public')">&times;</button>
+            <h4>重要提示</h4>
+        </div>
+        <div class="tip-content" id="tip-public-div">
+            Bug转发成功。
+        </div>
+        <div class="tip-footer">
+            <button type="button" class="btn btn-default" onClick="hidePop('#tip-public')">取消</button>
+        </div>
+    </div>
+</div>
+<!--pop-window -->
+
+
+<!--COMMON JS-->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.shCircleLoader-min.js"></script>
+<script src="js/theme.js"></script>
+<script src="whpjs/index.js"></script>
+<script src="whpjs/public.js"></script>
+<script src="whpjs/WebSocket.js"></script>
+</body>
+</html>

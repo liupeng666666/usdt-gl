@@ -1,0 +1,164 @@
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+<div class="container-fluid">
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="update()">修改</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+
+                                <th>USDT提现手续费</th>
+                                <th>USDT提现最低</th>
+                                <th>USDT提现最高</th>
+                                <th>BRU提现手续费</th>
+                                <th>BRU提现最低</th>
+                                <th>BRU提现最高</th>
+                                <th>最低交易额</th>
+                                <th>交易开启状态</th>
+                                <th>开启时间</th>
+                                <th>关闭时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="sys_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">系统设定</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>USDT提现手续费:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="usdttrade">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>USDT提现最低:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="minmoney">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>USDT提现最高:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="maxmoney">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>BRU提现手续费:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="brutrade">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>BRU提现最低:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="minbru">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>BRU提现最高:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="maxbru">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>最低交易额:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="zxjye">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>开始时间:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="datetimepicker">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>结束时间:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="datetimepicker2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $('#datetimepicker').datetimepicker({
+        language: 'zh-CN',
+        format: 'hh:ii:ss',
+        autoclose: true,
+        startView: 1
+    });
+    $('#datetimepicker2').datetimepicker({
+        language: 'zh-CN',
+        format: 'hh:ii:ss',
+        autoclose: true,
+        startView: 1
+    });
+</script>
+<script src="whpjs/system_system.js"></script>

@@ -1,0 +1,193 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>位置</dt>
+                                <dd>
+                                    <select class="form-control" id="location">
+
+                                    </select>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>状态</dt>
+                                <dd>
+                                    <select class="form-control" id="state">
+                                        <option value="">全部</option>
+                                        <option value="0">开启</option>
+                                        <option value="1">关闭</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="add_select('',1)"><i
+                                        class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="add()">添加</button>
+                        <button type="button" class="btn btn-primary" onclick="del()">删除</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>图片</th>
+                                <th>备注</th>
+                                <th>位置</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="sys_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共68条记录,1/5页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first">
+                                        <a href="#">首页</a>
+                                    </li>
+                                    <li class="page-pre">
+                                        <a href="#">上一页</a>
+                                    </li>
+                                    <li class="page-next">
+                                        <a href="#">下一页</a>
+                                    </li>
+                                    <li class="page-last">
+                                        <a href="#">末页</a>
+                                    </li>
+                                    <li class="pagejump">第<input name="" type="text">/10页
+                                        <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">广告</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>位置:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="add_class" onchange="add_class_f(this.value)">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>备注:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="memo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>图片:</label>
+                        <div class="col-xs-8">
+                            <input id="file-add" type="file" class="form-control" multiple
+                                   accept="image/jpeg,image/jpg,image/png,image/gif"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()" id="qddel">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<script src="js/fileinput.min.js"></script>
+<script src="whpjs/system_ad.js"></script>

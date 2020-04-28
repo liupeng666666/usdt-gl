@@ -1,0 +1,146 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="add()">添加</button>
+                        <button type="button" class="btn btn-primary" onclick="update()">编辑</button>
+                        <button type="button" class="btn btn-primary" onclick="del(1)">启动</button>
+                        <button type="button" class="btn btn-primary" onclick="del(2)">停止</button>
+                        <button type="button" class="btn btn-primary" onclick="del(3)">删除</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>等级</th>
+                                <th>百分比</th>
+                                <th>代数</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="team_center">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">团队佣金比例</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-4 label-right"><span class='require'>*</span>等级:</label>
+                        <div class="col-xs-7">
+                            <select class="form-control" id="style">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 label-right"><span class='require'>*</span>盘口名称:</label>
+                        <div class="col-xs-7">
+                            <select class="form-control" id="bfb">
+                                <option value="0.001">0.1%</option>
+                                <option value="0.002">0.2%</option>
+                                <option value="0.003">0.3%</option>
+                                <option value="0.004">0.4%</option>
+                                <option value="0.005">0.5%</option>
+                                <option value="0.006">0.6%</option>
+                                <option value="0.007">0.7%</option>
+                                <option value="0.008">0.8%</option>
+                                <option value="0.009">0.9%</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 label-right"><span class='require'>*</span>代数:</label>
+                        <div class="col-xs-7">
+                            <select class="form-control" id="level">
+                                <option value="1">1代</option>
+                                <option value="2">2代</option>
+                                <option value="3">3代</option>
+                                <option value="4">4代</option>
+                                <option value="5">5代</option>
+                                <option value="6">6代</option>
+                                <option value="7">7代</option>
+                                <option value="8">8代</option>
+                                <option value="9">9代</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del(3)" id="qddel">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<script src="whpjs/system_team.js"></script>

@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-currency">
+    </ul>
+    <ul class="sortby" id="top-minute">
+    </ul>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>开始时间</dt>
+                                <dd><input type="text" value="" id="datetimepicker" class="form-control"
+                                           data-date-format="yyyy-mm-dd hh:ii">
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>结束时间</dt>
+                                <dd><input type="text" value="" id="datetimepicker2" class="form-control"
+                                           data-date-format="yyyy-mm-dd hh:ii">
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="order_select('',1)"><i
+                                        class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-body">
+                    <ul class="todo-list" id="disc_center">
+
+                    </ul>
+                    <!-- todo-list-->
+
+
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $('#datetimepicker').datetimepicker({language: 'zh-CN'});
+    $('#datetimepicker2').datetimepicker({language: 'zh-CN'});
+</script>
+<script src="whpjs/sys_disc_tj.js"></script>

@@ -1,0 +1,83 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-currency">
+    </ul>
+    <ul class="sortby" id="top-minute">
+    </ul>
+    <ul class="sortby" id="top-grade">
+    </ul>
+
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-body">
+                    <ul class="todo-list" id="real_center">
+
+                    </ul>
+                    <!-- todo-list-->
+
+
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">控线</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" id="update-dj">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>等级:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="rise_fall">
+                                <option value=0>涨</option>
+                                <option value=1>跌</option>
+                                <option value=2>平</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>涨幅跌幅:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="range"
+                                   placeholder="平填写0，其他请按照实际情况控线">
+                        </div>
+                    </div>
+
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_kongxian()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<script src="whpjs/sub_order_real.js"></script>

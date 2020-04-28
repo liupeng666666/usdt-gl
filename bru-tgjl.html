@@ -1,0 +1,187 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <!-- <form>
+                  <ul class="panel-search">
+                     <li>
+                       <dl>
+                          <dt>标题</dt>
+                          <dd><input name="" type="text" class="form-control" id="search_content" placeholder="请输入用户名手机号或者昵称"></dd>                          
+                       </dl>                                                                        
+                     </li> 
+                     <li>
+                       <dl>                       
+                         <button type="button" class="btn btn-info btn-search" onclick="getBruUserBySearch('',1)"><i class="fa fa-search"></i>搜索</button>
+                       </dl>                                                                                             
+                    </li> 
+                  </ul>
+                
+                </form> -->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="updateTg()">修改</button>
+                    </div>
+
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>一代奖励活跃度</th>
+                                <th>一代奖励BRU</th>
+                                <th>二代奖励活跃度</th>
+                                <th>二代奖励BRU</th>
+                                <th>三代奖励活跃度</th>
+                                <th>三代奖励BRU</th>
+                            </tr>
+                            </thead>
+                            <tbody id="user_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共0条记录,0/0页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first"><a href="#">首页</a></li>
+                                    <li class="page-pre"><a href="#">上一页</a></li>
+                                    <li class="page-next"><a href="#">下一页</a></li>
+                                    <li class="page-last"><a href="#">末页</a></li>
+                                    <li class="pagejump">第<input name="" type="text">/0页 <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+
+<div class="modal fade" id="fileStorage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">修改推广奖励</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="form-group" id="update-dj">
+                       <label class="col-xs-3 label-right"><span class='require'>*</span>等级:</label>
+                       <div class="col-xs-8">
+                           <select class="form-control" id="update_grade">
+
+                           </select>
+                       </div>
+                    </div> -->
+                    <div class="form-group" id="update-mm">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>一代活跃度:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="onealive" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm2">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>一代bru:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="onebru" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm3">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>二代活跃度:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="twoalive" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm4">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>二代bru:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="twobru" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm5">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>三代活跃度:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="threealive" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group" id="update-mm6">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>三代bru:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="number" value="" class="form-control" id="threebru" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_tgupdate()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabelDel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<script src="brujs/bru_tgjl.js"></script>

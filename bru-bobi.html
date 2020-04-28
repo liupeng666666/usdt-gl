@@ -1,0 +1,111 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>位置</dt>
+                                <dd>
+                                    <input name="" type="text" class="form-control" id="name" placeholder="请输入手机号或者昵称">
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>状态</dt>
+                                <dd>
+                                    <select class="form-control" id="state">
+                                        <option value="">全部</option>
+                                        <option value="0">拨币</option>
+                                        <option value="1">拨活跃度</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="select('',1)"><i
+                                        class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>图片</th>
+                                <th>昵称</th>
+                                <th>类型</th>
+                                <th>数量</th>
+                                <th>创建时间</th>
+                            </tr>
+                            </thead>
+                            <tbody id="sys_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共68条记录,1/5页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first">
+                                        <a href="#">首页</a>
+                                    </li>
+                                    <li class="page-pre">
+                                        <a href="#">上一页</a>
+                                    </li>
+                                    <li class="page-next">
+                                        <a href="#">下一页</a>
+                                    </li>
+                                    <li class="page-last">
+                                        <a href="#">末页</a>
+                                    </li>
+                                    <li class="pagejump">第<input name="" type="text">/10页
+                                        <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+
+<script src="brujs/bru_bobi.js"></script>

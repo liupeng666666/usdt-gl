@@ -1,0 +1,224 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-type">
+        <li class="active" name="z-ul-li-1" onclick="class_qh('',this)"><a href="javascript:void(0)">全部</a></li>
+        <li name="z-ul-li-1" onclick="class_qh('1',this)"><a href="javascript:void(0)">买币</a></li>
+        <li name="z-ul-li-1" onclick="class_qh('0',this)"><a href="javascript:void(0)">卖币</a></li>
+    </ul>
+
+    <ul class="sortby" id="top-type">
+        <li class="active" name="z-ul-li-2" onclick="class_qh_state('',this)"><a href="javascript:void(0)">全部</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('0',this)"><a href="javascript:void(0)">已拍下</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('1',this)"><a href="javascript:void(0)">已付款</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('2',this)"><a href="javascript:void(0)">已收款</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('3',this)"><a href="javascript:void(0)">已放币</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('9',this)"><a href="javascript:void(0)">买方评价</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('8',this)"><a href="javascript:void(0)">卖方评价</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('7',this)"><a href="javascript:void(0)">已完成</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('6',this)"><a href="javascript:void(0)">买方取消</a></li>
+        <li name="z-ul-li-2" onclick="class_qh_state('5',this)"><a href="javascript:void(0)">卖方取消</a></li>
+    </ul>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>标题</dt>
+                                <dd><input name="" type="text" class="form-control" id="user_name"
+                                           placeholder="请输入用户名手机号邮箱或者昵称"></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="order_select('',1)"><i
+                                        class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th style="min-width: 80px;">订单号</th>
+                                <th style="min-width: 85px;">买方</th>
+                                <th style="min-width: 85px;">卖方</th>
+                                <th style="min-width: 90px;">购买数量</th>
+                                <th style="min-width: 90px;">人民币金额</th>
+                                <th style="min-width: 90px;">单价</th>
+                                <th style="min-width: 165px;">交易状态</th>
+                                <th style="min-width: 50px;">类型</th>
+                                <th style="min-width: 130px;">创建时间</th>
+                                <th style="min-width: 130px;">修改时间</th>
+                                <th style="min-width: 50px;">交易记录</th>
+                                <th style="min-width: 50px;">聊天记录</th>
+                                <th style="min-width: 50px;">问题处理</th>
+                            </tr>
+                            </thead>
+                            <tbody id="order_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共0条记录,1/1页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first">
+                                        <a href="#">首页</a>
+                                    </li>
+                                    <li class="page-pre">
+                                        <a href="#">上一页</a>
+                                    </li>
+                                    <li class="page-next">
+                                        <a href="#">下一页</a>
+                                    </li>
+                                    <li class="page-last">
+                                        <a href="#">末页</a>
+                                    </li>
+                                    <li class="pagejump">第<input name="" type="text">/10页
+                                        <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+    <div class="modal fade" id="stateInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header modal-green">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">订单记录</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th style="min-width: 80px;">订单号</th>
+                                    <th style="min-width: 50px;">类型</th>
+                                    <th style="min-width: 165px;">交易状态</th>
+                                    <th style="min-width: 130px;">创建时间</th>
+                                </tr>
+                                </thead>
+                                <tbody id="state_center">
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- form-group-->
+                    </div>
+                    <!--modal-body-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    </div>
+                </form>
+            </div>
+            <!--modal-content-->
+        </div>
+        <!--modal-dialog-->
+    </div>
+
+    <div class="modal fade" id="msgInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header modal-green">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">聊天记录</h4>
+                    </div>
+                    <div class="modal-body" style=" overflow:scroll; max-height:400px;">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th style="min-width: 40px;"></th>
+                                    <th style="min-width: 200px;"></th>
+                                    <th style="min-width: 40px;"></th>
+                                </tr>
+                                </thead>
+                                <tbody id="msg_center">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- form-group-->
+                    </div>
+                    <!--modal-body-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                    </div>
+                </form>
+            </div>
+            <!--modal-content-->
+        </div>
+        <!--modal-dialog-->
+    </div>
+
+    <div class="modal fade" id="orderUpdateInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header modal-green">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">问题解决</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-xs-3 label-right">责任:</label>
+                            <div class="col-xs-8">
+                                <label class="form-control">出售方</label>
+                            </div>
+                        </div>
+                        <!-- form-group-->
+                    </div>
+                    <!--modal-body-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" onclick="qd_update()" id="qdUpd">充币</button>
+                        <button type="button" class="btn btn-info" onclick="qd_cancel()" id="qdCel">释放</button>
+                    </div>
+                </form>
+            </div>
+            <!--modal-content-->
+        </div>
+        <!--modal-dialog-->
+    </div>
+
+</div>
+
+<!--记录-->
+<script src="whpjs/fb_order.js"></script>

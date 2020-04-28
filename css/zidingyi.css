@@ -1,0 +1,65 @@
+.socket {
+    -webkit-box-shadow: #666 0px 0px 10px;
+    -moz-box-shadow: #666 0px 0px 10px;
+    box-shadow: #666 0px 0px 10px;
+    background: #EEFF99;
+    padding: 10px;
+    margin: 10px;
+}
+
+.socket ul {
+    margin: 10px;
+}
+
+.socket li {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px #0CC2AA solid;
+}
+
+.socket .active {
+    background-color: #8968CD;
+    border-radius: 20px;
+}
+
+.socket li img {
+    width: 50px;
+    height: 50px;
+}
+
+.tubiao {
+    font-size: 12px;
+    border-radius: 20px;
+    line-height: 50px;
+}
+
+.liaotian {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    height: 50px;
+    font-size: 10px;
+}
+
+.liaotian img {
+    width: 30px;
+    height: 30px;
+}
+
+.liaotian .message-hui {
+    background-color: #CCCCCC;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.liaotian .message-lan {
+    background-color: #0CC2AA;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}

@@ -1,0 +1,118 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-currency">
+    </ul>
+    <ul class="sortby" id="top-minute">
+    </ul>
+    <ul class="sortby" id="top-grade">
+    </ul>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>标题</dt>
+                                <dd><input name="" type="text" class="form-control" id="user_name"
+                                           placeholder="请输入用户名手机号邮箱或者昵称"></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="order_select('',1)"><i
+                                        class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>图片</th>
+                                <th>用户名</th>
+                                <th>昵称</th>
+                                <th>等级</th>
+                                <th>币种</th>
+                                <th>盘口</th>
+                                <th>期数</th>
+                                <th>投注</th>
+                                <th>涨跌</th>
+                                <th>交易比例</th>
+                                <th>开盘价</th>
+                                <th>收盘价</th>
+                                <th>收入</th>
+                                <th>手续费</th>
+                                <th>购买时间</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="order_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共0条记录,1/1页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first">
+                                        <a href="#">首页</a>
+                                    </li>
+                                    <li class="page-pre">
+                                        <a href="#">上一页</a>
+                                    </li>
+                                    <li class="page-next">
+                                        <a href="#">下一页</a>
+                                    </li>
+                                    <li class="page-last">
+                                        <a href="#">末页</a>
+                                    </li>
+                                    <li class="pagejump">第<input name="" type="text">/10页
+                                        <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+<script src="whpjs/sub_order.js"></script>

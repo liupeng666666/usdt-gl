@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>买单价:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" value="" class="form-control" id="bk_open">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>卖单价:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" value="" class="form-control" id="bk_close">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>最低价:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" value="" class="form-control" id="bk_low">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>最高价:</label>
+                        <div class="col-xs-9">
+                            <input name="" type="number" value="" class="form-control" id="bk_high">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 label-right"><span class='require'>*</span>展示日期:</label>
+                        <div class="col-xs-9">
+                            <input type="text" value="" id="datetimepicker" class="form-control"
+                                   data-date-format="yyyy-mm-dd hh:ii">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--/panel-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" onclick="tiaoban()">取消</button>
+                </div>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $('#datetimepicker').datetimepicker({language: 'zh-CN'});
+</script>
+
+<script src="brujs/bru-kline-dan.js"></script>

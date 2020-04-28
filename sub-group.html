@@ -1,0 +1,308 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<script src="js/WebIM/strophe-1.2.8.min.js"></script>
+<script src="js/WebIM/webim.config.js"></script>
+<script src="js/WebIM/websdk-1.4.13.js"></script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <form>
+                    <ul class="panel-search">
+                        <li>
+                            <dl>
+                                <dt>置顶</dt>
+                                <dd>
+                                    <select class="form-control" id="top">
+                                        <option value="">全部</option>
+                                        <option value="0">不置顶</option>
+                                        <option value="1">置顶</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>类型</dt>
+                                <dd>
+                                    <select class="form-control" id="state">
+                                        <option value="">全部</option>
+                                        <option value="0">私有</option>
+                                        <option value="1">公开</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>状态</dt>
+                                <dd>
+                                    <select class="form-control" id="audit">
+                                        <option value="">全部</option>
+                                        <option value="0">未审核</option>
+                                        <option value="1">审核通过</option>
+                                        <option value="2">审核不通过</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>模糊查询</dt>
+                                <dd>
+                                    <input class="form-control" id="name" placeholder="用户名,手机号,邮箱"/>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <button type="button" class="btn btn-info btn-search" onclick="group_select('',1)"><i
+                                        class="fa fa-search"></i>搜索
+                                </button>
+                            </dl>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-xs-12-->
+    </div>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="add()">创建公开群</button>
+                        <button type="button" class="btn btn-primary" onclick="update(2,0)">取消置顶</button>
+                        <button type="button" class="btn btn-primary" onclick="update(2,1)">置顶</button>
+                        <button type="button" class="btn btn-primary" onclick="img_update()">修改</button>
+                        <button type="button" class="btn btn-primary" onclick="del()">删除</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>群头像</th>
+                                <th>群名</th>
+                                <th>是否公开</th>
+                                <th>是否置顶</th>
+                                <th>创建人</th>
+                                <th>群成员</th>
+                                <th>创建时间</th>
+                                <th>到期时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="sys_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共68条记录,1/5页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first">
+                                        <a href="#">首页</a>
+                                    </li>
+                                    <li class="page-pre">
+                                        <a href="#">上一页</a>
+                                    </li>
+                                    <li class="page-next">
+                                        <a href="#">下一页</a>
+                                    </li>
+                                    <li class="page-last">
+                                        <a href="#">末页</a>
+                                    </li>
+                                    <li class="pagejump">第<input name="" type="text">/10页
+                                        <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">讨论组</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>聊天室名称:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="addname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>简介:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="intro">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>图片:</label>
+                        <div class="col-xs-8">
+                            <input id="file-add" type="file" class="form-control" multiple
+                                   accept="image/jpeg,image/jpg,image/png,image/gif"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+<!--录入-->
+<div class="modal fade" id="updateFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">讨论组</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>聊天室名称:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="updatename">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>简介:</label>
+                        <div class="col-xs-8">
+                            <input name="" type="text" value="" class="form-control" id="updateintro">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>图片:</label>
+                        <div class="col-xs-8">
+                            <img src="" width="100%" id="update_img"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>图片:</label>
+                        <div class="col-xs-8">
+                            <input id="file-update" type="file" class="form-control" multiple
+                                   accept="image/jpeg,image/jpg,image/png,image/gif"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="update_tishi"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_update()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="updatreFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">审核</h4>
+            </div>
+            <div class="modal-body">
+                <p class="modal-title" id="myModalLabelTitle"></p>
+                <div class="modal-body" id="myModalLabelN"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_shenhe('1')" id="qddel">审核通过</button>
+                <button type="button" class="btn btn-default" onclick="qd_shenhe('2')">审核不通过</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()" id="qddel">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+<script src="js/fileinput.min.js"></script>
+<script src="whpjs/sub_group.js"></script>

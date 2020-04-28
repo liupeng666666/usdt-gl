@@ -1,0 +1,120 @@
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+    <ul class="sortby" id="top-type">
+        <li class="active" name="z-ul-li-1" onclick="class_qh('',this,1)"><a href="javascript:void(0)">全部</a></li>
+        <li name="z-ul-li-1" onclick="class_qh('0',this,1)"><a href="javascript:void(0)">购买</a></li>
+        <li name="z-ul-li-1" onclick="class_qh('1',this,1)"><a href="javascript:void(0)">售出</a></li>
+    </ul>
+    <ul class="sortby" id="top-currency">
+    </ul>
+    <ul class="sortby" id="top-state">
+        <li class="active" name='z-ul-li-3' onclick="class_qh('',this,3)"><a href="javascript:void(0)">全部</a></li>
+        <li name='z-ul-li-3' onclick="class_qh('0',this,3)"><a href="javascript:void(0)">上架</a></li>
+        <li name='z-ul-li-3' onclick="class_qh('1',this,3)"><a href="javascript:void(0)">下架</a></li>
+        <li name='z-ul-li-3' onclick="class_qh('2',this,3)"><a href="javascript:void(0)">完成</a></li>
+    </ul>
+    <!--/row-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="upd(1)">上架</button>
+                        <button type="button" class="btn btn-primary" onclick="upd(2)">下架</button>
+                        <button type="button" class="btn btn-primary" onclick="upd(3)">完成</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th style="min-width: 40px;"></th>
+                                <th style="min-width: 50px;">图片</th>
+                                <th style="min-width: 80px;">用户名</th>
+                                <th style="min-width: 80px;">昵称</th>
+                                <th style="min-width: 80px;">购买/售出</th>
+                                <th style="min-width: 80px;">交易</th>
+                                <th style="min-width: 110px;">支付款方式</th>
+                                <th style="min-width: 130px;">出售量</th>
+                                <th style="min-width: 130px;">限额量</th>
+                                <th style="min-width: 110px;">价格/单价</th>
+                                <th style="min-width: 130px;">创建时间</th>
+                                <th style="min-width: 50px;">状态</th>
+                                <th style="min-width: 50px;">订单详情</th>
+                            </tr>
+                            </thead>
+                            <tbody id="sell_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                    <div class="row" id="showpage">
+                        <div class="col-xs-6">
+                            <div class="dataTables_info" id="dynamic-table_info">共0条记录,1/1页</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first">
+                                        <a href="#">首页</a>
+                                    </li>
+                                    <li class="page-pre">
+                                        <a href="#">上一页</a>
+                                    </li>
+                                    <li class="page-next">
+                                        <a href="#">下一页</a>
+                                    </li>
+                                    <li class="page-last">
+                                        <a href="#">末页</a>
+                                    </li>
+                                    <li class="pagejump">第<input name="" type="text">/10页
+                                        <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="updFile" tabindex="-1" role="dialog" aria-labelledby="myModalUpdLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalUpdLabel"></h4>
+            </div>
+            <div class="modal-body" id="myModalUpdLabelN">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" id="qdupd">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+<script src="whpjs/fb_sell.js"></script>

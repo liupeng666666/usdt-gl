@@ -1,0 +1,185 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="add()">添加</button>
+                        <button type="button" class="btn btn-primary" onclick="update()">编辑</button>
+                        <button type="button" class="btn btn-primary" onclick="del(1)">启动</button>
+                        <button type="button" class="btn btn-primary" onclick="del(2)">停止</button>
+                        <button type="button" class="btn btn-primary" onclick="del(3)">删除</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>名称</th>
+                                <th>类别</th>
+                                <th>logo</th>
+                                <!--    <th>创建时间</th>
+                                    <th>修改时间</th>-->
+                                <th>一天前价格</th>
+                                <th>总市值</th>
+                                <th>是否开盘</th>
+                                <th>开盘时间</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="currency_center">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">币币</h4>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>名称:</label>
+
+                    <div class="col-xs-8">
+                        <input name="" type="text" value="" class="form-control" id="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>类别:</label>
+                    <div class="col-xs-8">
+                        <select class="form-control" id="type">
+                            <option name="0">主流</option>
+                            <option name="1">主创</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>logo:</label>
+                    <div class="col-xs-8">
+                        <input id="file-add" type="file" class="form-control"
+                               accept="image/jpeg,image/jpg,image/png,image/gif"/>
+                    </div>
+                </div>
+                <!--
+                                 <div class="form-group" id="update-mm">
+                                            <label class="col-xs-3 label-right"><span class='require>*</span>创建时间:</label>
+                                        <div class="col-xs-8">
+                                            <input name="" type="text"readonly="readonly" value="" class="form-control" id="createtime" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="update-mm">
+                                        <label class="col-xs-3 label-right"><span class='require'>*</span>修改时间:</label>
+                                        <div class="col-xs-8">
+                                            <input name="" type="text"readonly="readonly" value="" class="form-control" id="updatetime" disabled="disabled">
+                                        </div>
+                                    </div>
+                -->
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>一天前价格:</label>
+                    <div class="col-xs-8">
+                        <input name="" type="text" value="" class="form-control" id="oneday">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>总市值:</label>
+                    <div class="col-xs-8">
+                        <input name="" type="text" value="" class="form-control" id="market">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>是否开盘:</label>
+                    <div class="col-xs-8">
+                        <input name="" type="text" value="" class="form-control" id="open">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>开盘时间:</label>
+                    <div class="col-xs-8">
+                        <input name="" type="text" value="" class="form-control" id="opentime">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-3 label-right"><span class='require'>*</span>排序:</label>
+                    <div class="col-xs-8">
+                        <select class="form-control" id="sort">
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-9">
+                        <div class="Valid_checktip Valid_wrong" id="message"></div>
+                    </div>
+                </div>
+                <!-- form-group-->
+        </div>
+        <!--modal-body-->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        </div>
+        </form>
+    </div>
+    <!--modal-content-->
+</div>
+<!--modal-dialog-->
+</div>
+<!--end modal-->
+
+</div>
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delFile" tabindex="-1" role="dialog" aria-labelledby="myModalDelLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalDelLabel">删除</h4>
+            </div>
+            <div class="modal-body" id="myModalDelLabelN">
+                确定要删除？
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_del(3)" id="qddel">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+                <!--end modal-->
+            </div>
+            <!--modal-content-->
+        </div>
+        <!--modal-dialog-->
+    </div>
+
+    <script src="js/fileinput.min.js"></script>
+    <script src="whpjs/bb_currency.js"></script>

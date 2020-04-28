@@ -1,0 +1,298 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<!--==== begin container-fluid ====-->
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <h2>部门列表</h2>
+                </div>
+                <div class="panel-body">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+        <div class="col-xs-8">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <h2>管理员列表</h2>
+                    <div class="tools">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" onclick="add()">添加</button>
+                            <button type="button" class="btn btn-primary" onclick="update()">修改</button>
+                            <button type="button" class="btn btn-primary" onclick="del(1)">启用</button>
+                            <button type="button" class="btn btn-primary" onclick="del(2)">停用</button>
+                            <button type="button" class="btn btn-primary" onclick="del(3)">删除</button>
+                            <button type="button" class="btn btn-primary" onclick="pas()">重置密码</button>
+                            <button type="button" class="btn btn-primary" onclick="ip()">白名单</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="role-part" id="user-part">
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered tooltip-demo">
+                            <thead>
+                            <tr>
+                                <th width="30px"></th>
+                                <th>头像</th>
+                                <th>用户名</th>
+                                <th>真实姓名</th>
+                                <th>联系方式</th>
+                                <th>状态</th>
+                                <th>角色</th>
+                                <th>最后登陆</th>
+                            </tr>
+                            </thead>
+                            <tbody id="user_center">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" id="showpage">
+                        <div class="col-xs-4">
+                            <div class="dataTables_info" id="dynamic-table_info">共68条记录,1/5页</div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="dataTables_paginate paging_bootstrap pagination">
+                                <ul id="center_fy">
+                                    <li class="page-first"><a href="#">首页</a></li>
+                                    <li class="page-pre"><a href="#">上一页</a></li>
+                                    <li class="page-next"><a href="#">下一页</a></li>
+                                    <li class="page-last"><a href="#">末页</a></li>
+                                    <li class="pagejump">第<input name="" type="text">/10页 <a href="#">GO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row showpage -->
+
+
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+<!--添加-->
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">管理员添加</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-7">
+                            <div class="form-group">
+                                <label class="col-xs-3 label-right"><span class='require'>*</span>所属机构:</label>
+                                <div class="col-xs-8">
+                                    <input name="" type="text" class="form-control" value="质量管理部门" id="add_depart"
+                                           disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 label-right"><span class='require'>*</span>用户名:</label>
+                                <div class="col-xs-8">
+                                    <input name="" type="text" class="form-control" value="" id="username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 label-right"><span class='require'>*</span>手机号:</label>
+                                <div class="col-xs-8">
+                                    <input name="" type="text" class="form-control" value="" id="phone">
+                                </div>
+                            </div>
+                            <div class="form-group password">
+                                <label class="col-xs-3 label-right"><span class='require'>*</span>密码:</label>
+                                <div class="col-xs-8">
+                                    <input name="" type="password" class="form-control" value="" id="password">
+                                </div>
+                            </div>
+                            <div class="form-group password">
+                                <label class="col-xs-3 label-right"><span class='require'>*</span>重复密码:</label>
+                                <div class="col-xs-8">
+                                    <input name="" type="password" class="form-control" value="" id="password2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 label-right">真实姓名:</label>
+                                <div class="col-xs-8">
+                                    <input name="" type="text" class="form-control" value="" id="nickname">
+                                </div>
+                            </div>
+                            <div class="form-group" id="update_img" style="display: none;">
+                                <label class="col-xs-2 label-right"><span class='require'>*</span>图片:</label>
+                                <div class="col-xs-9">
+                                    <img src="" id="img"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 label-right"><span class='require'>*</span>图片:</label>
+                                <div class="col-xs-9">
+                                    <input id="file-add" type="file" class="form-control"
+                                           accept="image/jpeg,image/jpg,image/png,image/gif"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-offset-3 col-xs-9">
+                                    <div class="Valid_checktip Valid_wrong" id="add_tishi"></div>
+                                </div>
+                            </div>
+                            <!-- form-group-->
+
+                        </div>
+                        <!-- col-lg-8-->
+                        <div class="col-xs-5 user-roleselect">
+                            <h3><i class="fa fa-user info"></i>选择角色</h3>
+                            <ul id="user_role">
+                            </ul>
+                        </div>
+                        <!--col-lg-4-->
+                    </div>
+                    <!--row -->
+
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_add()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<!--修改密码-->
+<div class="modal fade" id="edituserPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">重置密码</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>新密码:</label>
+                        <div class="col-xs-9">
+                            <input type="password" class="form-control" name="" id="epass">
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_pas()">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<!--白名单-->
+<div class="modal fade" id="edituserIP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">白名单</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>白名单:</label>
+                        <div class="col-xs-9">
+                            <textarea name="" cols="" rows="" class="form-control" id="eip"></textarea>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong">设置多个ip,请以“,”分割</div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_ip()">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<!--撤销-->
+<div class="modal fade bs-example-modal-sm" id="delUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header modal-green">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">撤销</h4>
+            </div>
+            <div class="modal-body" id="myModalLabelN">
+                确定要撤销？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="qd_del()">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<script src="js/fileinput.min.js"></script>
+<script src="js/zTree/jquery.ztree.core-3.5.min.js"></script>
+<script src="js/zTree/jquery.ztree.excheck-3.5.min.js"></script>
+<script src="whpjs/system_manage.js"></script>

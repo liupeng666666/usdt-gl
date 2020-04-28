@@ -1,0 +1,157 @@
+<link href="js/fileinput.min.css" rel="stylesheet" type="text/css"/>
+<div class="container-fluid">
+    <ul class="sortby" id="top-state">
+        <li class="active" name='z-ul-li-3' onclick="class_qh('',this,3)"><a href="javascript:void(0)">全部</a></li>
+        <li name='z-ul-li-3' onclick="class_qh('0',this,3)"><a href="javascript:void(0)">能量值</a></li>
+        <li name='z-ul-li-3' onclick="class_qh('1',this,3)"><a href="javascript:void(0)">流量值</a></li>
+    </ul>
+    <ul class="sortby" id="top-state">
+        <li class="active" name='z-ul-li-2' onclick="class_qh('',this,2)"><a href="javascript:void(0)">全部</a></li>
+        <li name='z-ul-li-2' onclick="class_qh('0',this,2)"><a href="javascript:void(0)">进行中</a></li>
+        <li name='z-ul-li-2' onclick="class_qh('1',this,2)"><a href="javascript:void(0)">已完成</a></li>
+    </ul>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel borderBox">
+                <div class="panel-title">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-primary" onclick="add()">重置</button>
+
+                        <button type="button" class="btn btn-primary" onclick="shoukong()">手控</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="40px"></th>
+                                <th>总额</th>
+                                <th>开始时间</th>
+                                <th>结束时间</th>
+                                <th>完成进度</th>
+                                <th>类型</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="report_center">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--/table-responsive-->
+                </div>
+                <!--/panel-body-->
+            </div>
+            <!--/panel-->
+        </div>
+        <!--/col-lg-5-->
+
+    </div>
+    <!--/row-->
+
+</div>
+<!--/container-fluid-->
+</div>
+<!--==== END PAGE CONTENT =====-->
+
+</div>
+<!-- /.wrapper -->
+<!--===========END PAGE===============-->
+
+<!--录入-->
+<div class="modal fade" id="addFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">重置</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>类别:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="state">
+                                <option value="0">能量值</option>
+                                <option value="1">流量值</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>总额:</label>
+                        <div class="col-xs-8">
+                            <input class="form-control" id="money" type="number"/>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="message"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_up()" id="qd">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+
+<!--录入-->
+<div class="modal fade" id="shoukongFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header modal-green">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">手控</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>类别:</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" id="s_state">
+                                <option value="0">能量值</option>
+                                <option value="1">流量值</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 label-right"><span class='require'>*</span>数量:</label>
+                        <div class="col-xs-8">
+                            <input class="form-control" id="s_money" type="number"/>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="Valid_checktip Valid_wrong" id="s_message"></div>
+                        </div>
+                    </div>
+                    <!-- form-group-->
+                </div>
+                <!--modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" onclick="qd_sk()">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+        <!--modal-content-->
+    </div>
+    <!--modal-dialog-->
+</div>
+<!--end modal-->
+
+<script src="brujs/bru_report.js"></script>
